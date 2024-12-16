@@ -49,6 +49,7 @@ class Scrape_Questions():
     def get_questions(self):
         return self.questionsList
 
+
 if __name__ == "__main__":
     scraper = Scrape_Questions()
 
@@ -56,6 +57,5 @@ if __name__ == "__main__":
 
     questions = scraper.get_questions()
     print(questions[0]["acceptanceRate"])
+    print("Almost")
     print("Done")
-
-
