@@ -46,13 +46,16 @@ class Scrape_Questions():
         self.totalNumQuestions = questionsData["total"]
         self.questionsList = questionsData["questions"]
 
-
+    def get_questions(self):
+        return self.questionsList
 
 if __name__ == "__main__":
     scraper = Scrape_Questions()
 
-    data = scraper.get_question_by_tag()
+    scraper.get_question_by_tag()
 
+    questions = scraper.get_questions()
+    print(questions[0]["acceptanceRate"])
     print("Done")
 
 
