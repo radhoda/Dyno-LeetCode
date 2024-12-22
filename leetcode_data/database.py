@@ -1,15 +1,14 @@
-import sqlalchemy as db
-import psycopg2
+import sqlalchemy
 from sqlalchemy import create_engine
 from sqlalchemy import Table, Column, Integer, String, Float, Boolean, ForeignKey
 from sqlalchemy.orm import sessionmaker
 from sqlalchemy.orm import relationship
 from sqlalchemy.ext.declarative import declarative_base
 
-engine = create_engine('postgresql://postgres:Smith2000!@localhost:5432/postgres')
+engine = create_engine('postgresql://postgres:smith2000@localhost:5432/postgres')
 session = sessionmaker(bind=engine)
 
-Base = declarative_base()
+Base = sqlalchemy.orm.declarative_base()
 
 question_tags = Table(
     'question_tags', Base.metadata,
