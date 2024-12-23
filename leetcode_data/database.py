@@ -12,7 +12,7 @@ Base = sqlalchemy.orm.declarative_base()
 
 question_tags = Table(
     'question_tags', Base.metadata,
-    Column('question_id', Integer, ForeignKey('question.qid'), primary_key=True),
+    Column('question_id', Integer, ForeignKey('questions.qid'), primary_key=True),
     Column('tag_id', Integer, ForeignKey('tags.id'), primary_key=True)
 )
 
@@ -22,7 +22,7 @@ class Tags(Base):
     id = Column(Integer, primary_key=True, autoincrement=True)
     slug = Column(String, unique=True, nullable=False)
 
-    questions = relationship("Questions", secondary="question_tags", back_populates="topicTags")
+    questions = relationship("Question", secondary="question_tags", back_populates="topicTags")
 
 
 class Question(Base):
@@ -61,4 +61,13 @@ class DatabaseHandler:
                 newQuestion.topicTags.append(tag)
             self.session.add(newQuestion)
 
-        self.session.commit()
+        try:
+            print("The data went through")
+            self.session.commit()
+        except Exception as e:
+            print("Did not go through")
+            self.session.rollback()
+            raise
+
+    def get_questions(self):
+        return self.session.query(Question).all()

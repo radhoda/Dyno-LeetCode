@@ -4,7 +4,7 @@ class Scrape_Questions():
     def __init__(self):
         self.totalNumQuestions = 0
         self.questionsList = []
-    def get_question_by_tag(self):
+    def scrape_questions(self):
         data = {
             "query": """query problemsetQuestionList($categorySlug: String, $limit: Int, $skip: Int, $filters: QuestionListFilterInput) {
                     problemsetQuestionList: questionList(
