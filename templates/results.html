@@ -3,25 +3,33 @@
 <head>
     <meta charset="utf-8"/>
     <title>Search Results</title>
+
+    <link rel="stylesheet" href="{{url_for('static', filename='results.css')}}"/>
 </head>
 <body>
     <h1>Search Results for "{{ query }}"</h1>
 
     {% if results %}
-        <ul>
+        <div class="results-container">
             {% for question in results %}
-                <li>
-                    <strong>{{ question.title }}</strong>
-                    (Difficulty: {{ question.difficulty }},
-                    Acceptance Rate: {{ question.acceptanceRate }})
-                    <ul>
-                        {% for tag in question.topicTags %}
-                            <li>{{ tag.slug }}</li>
-                        {% endfor %}
-                    </ul>
-                </li>
+                <div class="result-card">
+                    <div class="result-details">
+                        <strong>{{ question.title }}</strong>
+                        <p>
+                            Difficulty: {{ question.difficulty }}<br>
+                            Acceptance Rate: {{ "%.2f"|format(question.acceptanceRate) }}%
+                        </p>
+                    </div>
+                    <div class="result-tags">
+                        <ul>
+                            {% for tag in question.topicTags %}
+                                <li>{{ tag.slug }}</li>
+                            {% endfor %}
+                        </ul>
+                    </div>
+                </div>
             {% endfor %}
-        </ul>
+        </div>
     {% else %}
         <p>No questions found matching your query.</p>
     {% endif %}
