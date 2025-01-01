@@ -1,0 +1,58 @@
+
+/* General body styling */
+body {
+    font-family: Arial, sans-serif;
+    background-color: #f4f4f9;
+    margin: 0;
+    padding: 0;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    height: 100vh;
+}
+/* Center the content */
+.container {
+    text-align: center;
+    background-color: white;
+    padding: 20px;
+    border-radius: 10px;
+    box-shadow: 0px 4px 10px rgba(0, 0, 0, 0.2);
+    width: 80%;
+    max-width: 800px;
+}
+
+/* heading styling */
+h1 {
+    font-size: 5rem;
+    color: #333;
+    margin-bottom: 20px;
+}
+
+/* input field styling */
+
+input[type="text"] {
+    padding: 10px;
+    font-size: 1rem;
+    width: 70%;
+    border: 1px solid #ccc;
+    border-radius: 5px;
+    margin-right: 10px;
+}
+
+/* Button styling */
+button {
+    padding: 10px 15px:
+    font-size: 1rem;
+    color: white;
+    background-color: #007bff;
+    border: none;
+    border-radius: 10px;
+    cursor: pointer;
+}
+/* Button styling when cursor on it */
+button:hover {
+    background-color: #0056b3;
+}
+
+
+
